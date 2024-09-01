@@ -8,7 +8,7 @@ import re
 
 # Streamlit UIの設定
 st.write("### :blue[Análisis de Texto o Documento]") 
-st.write("###### Minería de Texto con la Inteligencia Artificial")
+st.write("##### Minería de Texto con la Inteligencia Artificial")
 st.write("Pegue el texto para el análisis o suba un archivo PDF.")
 
 # テキストエリアとPDFファイルアップロードのオプション
@@ -16,6 +16,7 @@ texto = st.text_area("Introduce el texto aquí", "")
 pdf_file = st.file_uploader("O sube un archivo PDF", type="pdf")
 
 # 除外したい単語の入力
+st.write("Note abajo las palabras que se debe excluir del análisis.")
 col1, col2, col3 = st.columns(3)
 with col1:
     exclude_word1 = st.text_input("Palabra a excluir 1", "")
@@ -58,7 +59,7 @@ if st.button("Analizar"):
 
     # Word Cloudの表示
     st.subheader("Nube de Palabras (Word Cloud)")
-    st.write("###### Un Word Cloud o nube de palabras es una representación visual de texto donde las palabras más frecuentes o importantes en un conjunto de datos se muestran más grandes y destacadas. Es una herramienta útil para visualizar la importancia relativa de términos dentro de un texto de manera rápida y comprensible.")
+    st.write("###### Un Word Cloud o nube de palabras es una representación visual, por la aplicación de la Inteligencia Artificial, de texto donde las palabras más frecuentes o importantes en un conjunto de datos se muestran más grandes y destacadas. Es una herramienta útil para visualizar la importancia relativa de términos dentro de un texto de manera rápida y comprensible.")
     fig, ax = plt.subplots()
     ax.imshow(wordcloud, interpolation='bilinear')
     ax.axis("off")
