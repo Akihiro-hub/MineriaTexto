@@ -23,11 +23,11 @@ with col1:
     exclude_word1 = st.text_input("Palabra a excluir 1", "")
     exclude_word2 = st.text_input("Palabra a excluir 2", "")
 with col2:
-    exclude_word4 = st.text_input("Palabra a excluir 3", "")
-    exclude_word5 = st.text_input("Palabra a excluir 4", "")
+    exclude_word3 = st.text_input("Palabra a excluir 3", "")
+    exclude_word4 = st.text_input("Palabra a excluir 4", "")
 with col3:
-    exclude_word7 = st.text_input("Palabra a excluir 5", "")
-    exclude_word8 = st.text_input("Palabra a excluir 6", "")
+    exclude_word5 = st.text_input("Palabra a excluir 5", "")
+    exclude_word6 = st.text_input("Palabra a excluir 6", "")
 
 excluded_words = {exclude_word1, exclude_word2, exclude_word3, exclude_word4, exclude_word5, exclude_word6}
 
@@ -51,34 +51,34 @@ if texto:
     # Word Cloudの作成
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate(" ".join(filtered_words))
 
-    # 分析ボタンの表示
-    if st.button("Analizar"):
+# 分析ボタンの表示
+if st.button("Analizar"):
 
-        # Word Cloudの表示
-        st.subheader("Nube de Palabras (Word Cloud)")
-        st.write("###### Un Word Cloud o nube de palabras es una representación visual de texto donde las palabras más frecuentes o importantes en un conjunto de datos se muestran más grandes y destacadas. Es una herramienta útil para visualizar la importancia relativa de términos dentro de un texto de manera rápida y comprensible.")
-        fig, ax = plt.subplots()
-        ax.imshow(wordcloud, interpolation='bilinear')
-        ax.axis("off")
-        st.pyplot(fig)
+    # Word Cloudの表示
+    st.subheader("Nube de Palabras (Word Cloud)")
+    st.write("###### Un Word Cloud o nube de palabras es una representación visual de texto donde las palabras más frecuentes o importantes en un conjunto de datos se muestran más grandes y destacadas. Es una herramienta útil para visualizar la importancia relativa de términos dentro de un texto de manera rápida y comprensible.")
+    fig, ax = plt.subplots()
+    ax.imshow(wordcloud, interpolation='bilinear')
+    ax.axis("off")
+    st.pyplot(fig)
+    
+    # 頻出単語のグラフ表示
+    st.subheader("Frecuencia de las 10 palabras más comunes")
+    word_freq_dict = dict(most_common_words)
+    sns.barplot(x=list(word_freq_dict.values()), y=list(word_freq_dict.keys()), orient='h')
+    plt.xlabel("Frecuencia")
+    plt.ylabel("Palabra")
+    st.pyplot(plt)
 
-        # 頻出単語のグラフ表示
-        st.subheader("Frecuencia de las 10 palabras más comunes")
-        word_freq_dict = dict(most_common_words)
-        sns.barplot(x=list(word_freq_dict.values()), y=list(word_freq_dict.keys()), orient='h')
-        plt.xlabel("Frecuencia")
-        plt.ylabel("Palabra")
-        st.pyplot(plt)
-
-        # 頻出する単語の組み合わせ
-        st.subheader("Combinaciones de palabras más comunes")
-        bigram_freq = Counter(bigrams(filtered_words))
-        trigram_freq = Counter(trigrams(filtered_words))
+    # 頻出する単語の組み合わせ
+    st.subheader("Combinaciones de palabras más comunes")
+    bigram_freq = Counter(bigrams(filtered_words))
+    trigram_freq = Counter(trigrams(filtered_words))
         
-        st.write("Bigrams más comunes:")
-        for bigram, freq in bigram_freq.most_common(3):
-            st.write(f"{' '.join(bigram)}: {freq}")
+    st.write("Bigrams más comunes:")
+    for bigram, freq in bigram_freq.most_common(3):
+        st.write(f"{' '.join(bigram)}: {freq}")
 
-        st.write("Trigrams más comunes:")
-        for trigram, freq in trigram_freq.most_common(3):
-            st.write(f"{' '.join(trigram)}: {freq}")
+    st.write("Trigrams más comunes:")
+    for trigram, freq in trigram_freq.most_common(3):
+        st.write(f"{' '.join(trigram)}: {freq}")
