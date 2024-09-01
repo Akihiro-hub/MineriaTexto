@@ -7,6 +7,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk import bigrams, trigrams
 import PyPDF2
+nltk.download('punkt')
 
 # Streamlit UIの設定
 st.write("### :blue[Análisis de Texto o Documento]") 
@@ -37,7 +38,9 @@ if pdf_file:
     texto = ""
     for page in pdf_reader.pages:
         texto += page.extract_text()
-
+        if text:
+            texto += text
+            
 if texto:
     # テキストのトークン化と前処理
     words = nltk.word_tokenize(texto.lower())
