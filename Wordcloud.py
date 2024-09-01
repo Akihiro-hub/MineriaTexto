@@ -31,7 +31,7 @@ with col3:
 # デフォルトで除外する単語のリスト
 default_excluded_words = {
     "la", "el", "los", "las", "él", "ella", "en", "de", "del", "un", "que", "soy", "eres", "es", "somos", "son",
-    "estoy", "estás", "le", "poder", "hace", "año", "mes", "he", "estado", "había", "años", "meses",
+    "estoy", "estás", "le", "poder", "hace", "año", "mes", "he", "estado", "había", "años", "meses", "sobre", 
     "está", "estamos", "están", "este", "aquello", "aquella", "esta", "estas", "estos", "cual", "y", "ya", "hay", "a", "al",
     "lo", "desde", "hasta", "hacia", "usted", "tú", "yo", "compartir", "con", "para", "su", "nuestro", "sea", "sean", "esté", "estén", 
     "o", "u", "e", "por", "eso", "foto", "fotos", "local", "reseñas", "más", "mas", "nos", "os", "ser", "estar", "sí", "si", "estuviese", "estuviera",
