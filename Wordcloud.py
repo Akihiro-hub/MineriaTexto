@@ -7,7 +7,10 @@ import nltk
 from nltk.corpus import stopwords
 from nltk import bigrams, trigrams
 import PyPDF2
-nltk.download('punkt')
+
+import nltk
+nltk.download('punkt', quiet=True)
+
 
 # Streamlit UIの設定
 st.write("### :blue[Análisis de Texto o Documento]") 
