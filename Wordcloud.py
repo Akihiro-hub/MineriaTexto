@@ -8,10 +8,6 @@ from nltk.corpus import stopwords
 from nltk import bigrams, trigrams
 import PyPDF2
 
-import nltk
-nltk.download('punkt', quiet=True)
-
-
 # Streamlit UIの設定
 st.write("### :blue[Análisis de Texto o Documento]") 
 st.write("###### Minería de Texto con la Inteligencia Artificial")
@@ -44,8 +40,6 @@ if pdf_file:
 
 if texto:
     # テキストのトークン化と前処理
-    words = nltk.word_tokenize(texto.lower())
-    words = [word for word in words if word.isalpha()]
     filtered_words = [word for word in words if word not in excluded_words]
 
     # 頻出単語のカウント
