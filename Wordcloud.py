@@ -30,9 +30,9 @@ with col3:
 
 # デフォルトで除外する単語のリスト
 default_excluded_words = {
-    "la", "el", "en", "de", "del", "un", "que", "soy", "eres", "es", "somos", "son", "estoy", "estás", 
-    "está", "estamos", "están", "este", "aquello", "aquella", "esta", "estas", "estos", "cual", "y", 
-    "o", "u", "e", "por", "eso"
+    "la", "el", "en", "de", "del", "un", "que", "soy", "eres", "es", "somos", "son", "estoy", "estás", "le",
+    "está", "estamos", "están", "este", "aquello", "aquella", "esta", "estas", "estos", "cual", "y", "ya",
+    "o", "u", "e", "por", "eso", "foto", "fotos", "local", "reseñas", "más", "mas", "nos", "os", "ser", "estar", "sí", "si", "no", "ni", "guide", "hay"m "se"m "una", "uno"
 }
 
 # 入力された除外単語をセットに追加
