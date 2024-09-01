@@ -66,8 +66,8 @@ if st.button("Analizar"):
     
     # 頻出する単語の組み合わせ
     st.subheader("Combinaciones de palabras más comunes")
-    bigram_freq = Counter(bigrams(filtered_words))
-    trigram_freq = Counter(trigrams(filtered_words))
+    bigram_freq = Counter(list(zip(filtered_words[:-1], filtered_words[1:])))
+    trigram_freq = Counter(list(zip(filtered_words[:-2], filtered_words[1:-1], filtered_words[2:])))
         
     st.write("Bigrams más comunes:")
     for bigram, freq in bigram_freq.most_common(3):
@@ -76,3 +76,4 @@ if st.button("Analizar"):
     st.write("Trigrams más comunes:")
     for trigram, freq in trigram_freq.most_common(3):
         st.write(f"{' '.join(trigram)}: {freq}")
+
