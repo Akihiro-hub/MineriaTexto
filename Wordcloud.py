@@ -69,7 +69,7 @@ if st.button("Analizar"):
     st.pyplot(fig)
     
     # 頻出する単語の組み合わせ
-    st.subheader("Combinaciones de palabras más comunes")
+    st.subheader("Combinaciones de palabras observadas con cierta frecuencia")
     bigram_freq = Counter(list(zip(filtered_words[:-1], filtered_words[1:])))
     trigram_freq = Counter(list(zip(filtered_words[:-2], filtered_words[1:-1], filtered_words[2:])))
         
