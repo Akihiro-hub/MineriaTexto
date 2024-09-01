@@ -9,7 +9,6 @@ from nltk import bigrams, trigrams
 import PyPDF2
 
 # nltkのデータをダウンロード
-nltk.download('punkt')
 nltk.download('stopwords')
 
 # スペイン語と英語のストップワードを設定
