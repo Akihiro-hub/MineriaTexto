@@ -6,12 +6,6 @@ from collections import Counter
 import PyPDF2
 import re
 
-# punkt モジュールの確認とダウンロード
-try:
-    nltk.data.find('tokenizers/punkt')
-except LookupError:
-    nltk.download('punkt')
-
 # Streamlit UIの設定
 st.write("### :blue[Análisis de Texto o Documento]") 
 st.write("###### Minería de Texto con la Inteligencia Artificial")
