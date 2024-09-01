@@ -3,9 +3,6 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import seaborn as sns
 from collections import Counter
-import nltk
-from nltk.corpus import stopwords
-from nltk import bigrams, trigrams
 import PyPDF2
 import re
 
@@ -36,7 +33,16 @@ with col3:
     exclude_word5 = st.text_input("Palabra a excluir 5", "")
     exclude_word6 = st.text_input("Palabra a excluir 6", "")
 
-excluded_words = {exclude_word1, exclude_word2, exclude_word3, exclude_word4, exclude_word5, exclude_word6}
+# デフォルトで除外する単語のリスト
+default_excluded_words = {
+    "la", "el", "en", "de", "del", "un", "que", "soy", "eres", "es", "somos", "son", "estoy", "estás", 
+    "está", "estamos", "están", "este", "aquello", "aquella", "esta", "estas", "estos", "cual", "y", 
+    "o", "u", "e", "por", "eso"
+}
+
+# 入力された除外単語をセットに追加
+user_excluded_words = {exclude_word1, exclude_word2, exclude_word3, exclude_word4, exclude_word5, exclude_word6}
+excluded_words = default_excluded_words.union(user_excluded_words)
 
 if pdf_file:
     # PDFからテキストを抽出
