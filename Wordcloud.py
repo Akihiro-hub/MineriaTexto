@@ -8,15 +8,6 @@ from nltk.corpus import stopwords
 from nltk import bigrams, trigrams
 import PyPDF2
 
-# nltkのデータをダウンロード
-nltk.download('stopwords')
-
-# スペイン語と英語のストップワードを設定
-spanish_stopwords = set(stopwords.words('spanish'))
-english_stopwords = set(stopwords.words('english'))
-ser_estar_words = {"soy", "eres", "es", "somos", "sois", "son", 
-                   "estoy", "estás", "está", "estamos", "estaís", "están"}
-
 # Streamlit UIの設定
 st.write("### :blue[Análisis de Texto o Documento]") 
 st.write("###### Minería de Texto con la Inteligencia Artificial")
