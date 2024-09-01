@@ -50,11 +50,6 @@ if texto:
     words = re.findall(r'\b\w+\b', texto.lower())
     filtered_words = [word for word in words if word not in excluded_words]
 
-
-    # 頻出単語のカウント
-    word_freq = Counter(filtered_words)
-    most_common_words = word_freq.most_common(10)
-
     # Word Cloudの作成
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate(" ".join(filtered_words))
 
@@ -69,14 +64,6 @@ if st.button("Analizar"):
     ax.axis("off")
     st.pyplot(fig)
     
-    # 頻出単語のグラフ表示
-    st.subheader("Frecuencia de las 10 palabras más comunes")
-    word_freq_dict = dict(most_common_words)
-    sns.barplot(x=list(word_freq_dict.values()), y=list(word_freq_dict.keys()), orient='h')
-    plt.xlabel("Frecuencia")
-    plt.ylabel("Palabra")
-    st.pyplot(plt)
-
     # 頻出する単語の組み合わせ
     st.subheader("Combinaciones de palabras más comunes")
     bigram_freq = Counter(bigrams(filtered_words))
