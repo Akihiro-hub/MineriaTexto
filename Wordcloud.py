@@ -42,7 +42,7 @@ if texto:
     # テキストのトークン化と前処理
     words = nltk.word_tokenize(texto.lower())
     words = [word for word in words if word.isalpha()]
-    filtered_words = [word for word in words if word not in spanish_stopwords and word not in english_stopwords and word not in ser_estar_words and word not in excluded_words]
+    filtered_words = [word for word in words if word not in excluded_words]
 
     # 頻出単語のカウント
     word_freq = Counter(filtered_words)
