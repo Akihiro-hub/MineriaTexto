@@ -77,12 +77,14 @@ if st.button("Analizar"):
     st.subheader("Combinaciones de palabras observadas con cierta frecuencia")
     bigram_freq = Counter(list(zip(filtered_words[:-1], filtered_words[1:])))
     trigram_freq = Counter(list(zip(filtered_words[:-2], filtered_words[1:-1], filtered_words[2:])))
-        
-    st.write("##### :blue[Bigrams observadas:]")
-    for bigram, freq in bigram_freq.most_common(3):
-        st.write(f"{' '.join(bigram)}: {freq}")
-
-    st.write("##### :blue[Trigrams observadas:]")
-    for trigram, freq in trigram_freq.most_common(3):
-        st.write(f"{' '.join(trigram)}: {freq}")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        st.write("##### :blue[Bigrams observados:]")
+        for bigram, freq in bigram_freq.most_common(3):
+            st.write(f"{' '.join(bigram)}: {freq}")
+    with col2:
+        st.write("##### :blue[Trigrams observados:]")
+        for trigram, freq in trigram_freq.most_common(3):
+            st.write(f"{' '.join(trigram)}: {freq}")
 
