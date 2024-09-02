@@ -16,7 +16,7 @@ col1, col2 = st.columns(2)
 with col1:
     texto = st.text_area("Pegue aquí el texto a analizar", "")
 with col2: 
-    pdf_file = st.file_uploader("O sube un archivo PDF a analizar", type="pdf")
+    pdf_file = st.file_uploader("O, sube un archivo PDF a analizar, como segunda opción", type="pdf")
 
 # 除外したい単語の入力
 st.write("##### :green[Paso 2: Note abajo las palabras que deben excluirse del análisis, si las tiene.]")
