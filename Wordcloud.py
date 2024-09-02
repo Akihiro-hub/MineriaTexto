@@ -7,8 +7,8 @@ import PyPDF2
 import re
 
 # Streamlit UIの設定
-st.write("## :blue[Análisis de Texto o Documento por la Inteligencia Artificial]") 
-st.write("###### Word Cloud o Nube de Palabras es una representación visual, por la aplicación de la Inteligencia Artificial, de texto donde las palabras más frecuentes o importantes en un conjunto de datos se muestran más grandes y destacadas. Es una herramienta útil para visualizar la importancia relativa de términos dentro de un texto de manera rápida y comprensible.")
+st.write("## :blue[Análisis de Texto o Documento]") 
+st.write("Esta herramienta elabora Nube de Palabras (WordCloud en inglés), representación visual de texto donde las palabras más frecuentes o importantes en un conjunto de datos se muestran más grandes y destacadas. Este método se aplica en muchos proyectos de la Inteligencia Artificial.")
 st.write("##### :green[Paso 1: Pegue el texto para el análisis o suba un archivo PDF.]")
 
 # テキストエリアとPDFファイルアップロードのオプション
@@ -64,7 +64,8 @@ if texto:
 if st.button("Analizar"):
 
     # Word Cloudの表示
-    st.subheader("Nube de Palabras (Word Cloud)")
+    st.subheader("Nube de Palabras (WordCloud)")
+    st.write("WordCloud es útil para visualizar la importancia relativa de términos dentro de un texto de manera rápida y comprensible.")
     
     fig, ax = plt.subplots()
     ax.imshow(wordcloud, interpolation='bilinear')
