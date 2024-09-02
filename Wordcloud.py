@@ -8,7 +8,7 @@ import re
 
 # Streamlit UIの設定
 st.write("## :blue[Análisis de Texto o Documento]") 
-st.write("Esta herramienta elabora Nube de Palabras (WordCloud), representación visual de texto donde las palabras más frecuentes o importantes se presentan de manera destacada.")
+st.write("Puede elaborar Nube de Palabras (WordCloud), figura visual donde las palabras frecuentes o importantes en un texto se presentan de manera destacada. La misma se usa en muchos proyectos de Inteligencia Artificial.")
 st.write("##### :green[Paso 1: Pegue el texto para el análisis o suba un archivo PDF.]")
 
 # テキストエリアとPDFファイルアップロードのオプション
@@ -65,7 +65,7 @@ if st.button("Analizar"):
 
     # Word Cloudの表示
     st.subheader("Nube de Palabras (WordCloud)")
-    st.write("WordCloud es útil para visualizar la importancia relativa de términos dentro de un texto de manera rápida y comprensible. Esta herramienta se aplica en muchos proyectos de Inteligencia Artificial.")
+    st.write("WordCloud es útil para visualizar la importancia relativa de términos dentro de un texto de manera rápida y comprensible.")
 
     fig, ax = plt.subplots()
     ax.imshow(wordcloud, interpolation='bilinear')
