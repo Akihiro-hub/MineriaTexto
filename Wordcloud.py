@@ -12,8 +12,11 @@ st.write("###### Word Cloud o Nube de Palabras es una representación visual, po
 st.write("##### :green[Paso 1: Pegue el texto para el análisis o suba un archivo PDF.]")
 
 # テキストエリアとPDFファイルアップロードのオプション
-texto = st.text_area("Introduce el texto aquí", "")
-pdf_file = st.file_uploader("O sube un archivo PDF", type="pdf")
+col1, col2 = st.columns(2)
+with col1:
+    texto = st.text_area("Introduce el texto aquí", "")
+with col2: 
+    pdf_file = st.file_uploader("O sube un archivo PDF", type="pdf")
 
 # 除外したい単語の入力
 st.write("##### :green[Paso 2: Note abajo las palabras que deben excluirse del análisis, si las tiene.]")
