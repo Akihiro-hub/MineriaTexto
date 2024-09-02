@@ -8,7 +8,7 @@ import re
 
 # Streamlit UIの設定
 st.write("## :blue[Análisis de Texto o Documento]") 
-st.write("Esta herramienta elabora Nube de Palabras (WordCloud en inglés), representación visual de texto donde las palabras más frecuentes o importantes en un conjunto de datos se muestran más grandes y destacadas. Este método se aplica en muchos proyectos de la Inteligencia Artificial.")
+st.write("Esta herramienta elabora Nube de Palabras (WordCloud), representación visual de texto donde las palabras más frecuentes o importantes en un conjunto de datos se muestran más grandes y destacadas. El Instituto Nacional de Cooperativas -INACOP-, se complace en comunicar la firma de una Carta de Entendimiento con el Registro de Garantías Mobiliarias del Ministerio de Economía.
 st.write("##### :green[Paso 1: Pegue el texto para el análisis o suba un archivo PDF.]")
 
 # テキストエリアとPDFファイルアップロードのオプション
@@ -65,8 +65,8 @@ if st.button("Analizar"):
 
     # Word Cloudの表示
     st.subheader("Nube de Palabras (WordCloud)")
-    st.write("WordCloud es útil para visualizar la importancia relativa de términos dentro de un texto de manera rápida y comprensible.")
-    
+    st.write("WordCloud es útil para visualizar la importancia relativa de términos dentro de un texto de manera rápida y comprensible. Esta herramienta se aplica en muchos proyectos de Inteligencia Artificial.")
+
     fig, ax = plt.subplots()
     ax.imshow(wordcloud, interpolation='bilinear')
     ax.axis("off")
@@ -77,11 +77,11 @@ if st.button("Analizar"):
     bigram_freq = Counter(list(zip(filtered_words[:-1], filtered_words[1:])))
     trigram_freq = Counter(list(zip(filtered_words[:-2], filtered_words[1:-1], filtered_words[2:])))
         
-    st.write("##### :blue[Bigrams más comunes:]")
+    st.write("##### :blue[Bigrams observadas:]")
     for bigram, freq in bigram_freq.most_common(3):
         st.write(f"{' '.join(bigram)}: {freq}")
 
-    st.write("##### :blue[Trigrams más comunes:]")
+    st.write("##### :blue[Trigrams observadas:]")
     for trigram, freq in trigram_freq.most_common(3):
         st.write(f"{' '.join(trigram)}: {freq}")
 
