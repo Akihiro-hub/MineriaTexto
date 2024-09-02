@@ -8,7 +8,7 @@ import re
 
 # Streamlit UIの設定
 st.write("## :blue[Análisis de Texto o Documento]") 
-st.write("Esta herramienta elabora Nube de Palabras (WordCloud), representación visual de texto donde las palabras más frecuentes o importantes en un conjunto de datos se muestran más grandes y destacadas. El Instituto Nacional de Cooperativas -INACOP-, se complace en comunicar la firma de una Carta de Entendimiento con el Registro de Garantías Mobiliarias del Ministerio de Economía.
+st.write("Esta herramienta elabora Nube de Palabras (WordCloud), representación visual de texto donde las palabras más frecuentes o importantes se presentan de manera destacada.")
 st.write("##### :green[Paso 1: Pegue el texto para el análisis o suba un archivo PDF.]")
 
 # テキストエリアとPDFファイルアップロードのオプション
