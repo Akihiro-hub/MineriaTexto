@@ -1,3 +1,4 @@
+
 import streamlit as st
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
@@ -5,6 +6,7 @@ import seaborn as sns
 from collections import Counter
 import PyPDF2
 import re
+import bleach
 
 # Streamlit UIの設定
 st.write("## :blue[Análisis de Texto o Documento]") 
@@ -22,24 +24,19 @@ with col2:
 st.write("##### :green[Paso 2: Note abajo las palabras que deben excluirse del análisis, si las tiene.]")
 col1, col2, col3 = st.columns(3)
 with col1:
-    exclude_word1 = st.text_input("Palabra a excluir 1", "")
-    exclude_word2 = st.text_input("Palabra a excluir 2", "")
+    exclude_word1 = bleach.clean(st.text_input("Palabra a excluir 1", ""))
+    exclude_word2 = bleach.clean(st.text_input("Palabra a excluir 2", ""))
 with col2:
-    exclude_word3 = st.text_input("Palabra a excluir 3", "")
-    exclude_word4 = st.text_input("Palabra a excluir 4", "")
+    exclude_word3 = bleach.clean(st.text_input("Palabra a excluir 3", ""))
+    exclude_word4 = bleach.clean(st.text_input("Palabra a excluir 4", ""))
 with col3:
-    exclude_word5 = st.text_input("Palabra a excluir 5", "")
-    exclude_word6 = st.text_input("Palabra a excluir 6", "")
+    exclude_word5 = bleach.clean(st.text_input("Palabra a excluir 5", ""))
+    exclude_word6 = bleach.clean(st.text_input("Palabra a excluir 6", ""))
 
 # デフォルトで除外する単語のリスト
 default_excluded_words = {
     "la", "el", "los", "las", "él", "ella", "en", "de", "del", "un", "que", "soy", "eres", "es", "somos", "son",
-    "estoy", "estás", "le", "poder", "hace", "año", "mes", "he", "estado", "había", "años", "meses", "sobre", 
-    "gusta", "me", "mi", "su", "opiniones", "sugerencias", "calificación", "respuesta", "propietario", "dueño", "negocio",
-    "está", "estamos", "están", "este", "aquello", "aquella", "esta", "estas", "estos", "cual", "y", "ya", "hay", "a", "al",
-    "lo", "desde", "hasta", "hacia", "usted", "tú", "yo", "compartir", "con", "para", "su", "nuestro", "sea", "sean", "esté", "estén", 
-    "o", "u", "e", "por", "eso", "foto", "fotos", "local", "reseñas", "más", "mas", "nos", "os", "ser", "estar", "sí", "si", "estuviese", "estuviera",
-    "no", "ni", "guide", "hay", "se", "una", "uno", "fuí", "fue", "fuera", "fuese", "hubiera", "estaba", "estaban", "estuve", "estuvo", "estuvieron"
+    # (省略) 他の単語
 }
 
 # 入力された除外単語をセットに追加
@@ -52,6 +49,9 @@ if pdf_file:
     texto = ""
     for page in pdf_reader.pages:
         texto += page.extract_text()
+
+# サニタイズされたテキスト
+texto = bleach.clean(texto)
 
 if texto:
     # テキストのトークン化と前処理
@@ -76,15 +76,9 @@ if st.button("Analizar"):
     # 頻出する単語の組み合わせ
     st.subheader("Combinaciones de palabras observadas con cierta frecuencia")
     bigram_freq = Counter(list(zip(filtered_words[:-1], filtered_words[1:])))
-    trigram_freq = Counter(list(zip(filtered_words[:-2], filtered_words[1:-1], filtered_words[2:])))
-    
+
     col1, col2 = st.columns(2)
     with col1:
         st.write("##### :blue[Bigrams observados:]")
         for bigram, freq in bigram_freq.most_common(3):
             st.write(f"{' '.join(bigram)}: {freq}")
-    with col2:
-        st.write("##### :blue[Trigrams observados:]")
-        for trigram, freq in trigram_freq.most_common(3):
-            st.write(f"{' '.join(trigram)}: {freq}")
-
